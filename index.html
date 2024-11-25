@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/fontstyle.css">
+        <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="container m-auto w-50 p-3 mt-5 text-center">
+     <h2 >Smart Login System</h2>
+     <div class="inner">
+        <div class="mb-3">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email">
+          </div>
+         <div class="mb-3">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password">
+          </div>
+     </div>
+     <p class="error text-danger d-none">All inputs is required</p>
+     <p class="pValid text-danger d-none">incorrect email or password</p>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary login">Login</button>
+      </div>
+      <p class="text-light">Don’t have an account? <a class="text-decoration-none text-light" href="./login.html"> Sign Up</a></p>
+
+  </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script >
+ let inputEmail = document.querySelector("#inputEmail");
+let inputPassword = document.querySelector("#inputPassword");
+let btnLogin= document.querySelector(".login");
+let pError= document.querySelector(".error");
+let pValid = document.querySelector(".pValid");
+
+
+
+
+btnLogin.addEventListener("click", function() {
+let  email = inputEmail.value;
+let  password  =inputPassword.value;
+
+
+if(email === "" || password === ""){
+pError.classList.remove("d-none");
+}else{
+  let storedUserData = JSON.parse(localStorage.getItem("userData")); 
+if (storedUserData && storedUserData.userEmail === email && storedUserData.userPassword === password) {
+window.location.href = "./logout.html";
+ } else {
+pValid.classList.remove("d-none");
+pError.classList.add("d-none");
+
+ }
+}
+});
+    </script>
+</body>
+</html>

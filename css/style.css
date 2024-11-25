@@ -1,0 +1,38 @@
+body {
+  background-color: #23333d;
+}
+.container,
+.header {
+  background-color: #24353f;
+  width: 500px;
+  box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+}
+h2 {
+  color: #17a2b8;
+}
+
+button {
+  width: 100%;
+  color: #17a2b8;
+  border: 1px solid #17a2b8;
+}
+/* button:hover{
+    background-color: #17a2b8;
+    color: #fff;
+} */
+
+a:hover {
+  text-decoration: underline;
+}
+nav {
+  background-color: #24353f;
+
+  box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.btnLogOut:hover{
+background-color:darkorange   !important;
+}

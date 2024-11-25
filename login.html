@@ -1,0 +1,86 @@
+i<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/fontstyle.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container m-auto w-50 p-3 mt-5">
+      <h2 class="text-center">Smart Login System</h2>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="inputName" placeholder="Enter your name"/>
+        <p class="text-danger d-none text-center errorInput">enter your name</p>
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email"/>
+        <p class="text-danger d-none text-center errorInput">enter your email</p>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" id="inputPassword"nplaceholder="Enter your password" />
+        <p class="text-danger d-none text-center errorInput">enter your password</p>
+      </div>
+      <p class="errorSignup  text-danger d-none">All inputs is required</p>
+      <p class="success text-danger d-none">Success</p>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary signUp">Sign Up</button>
+      </div>
+      <p class="text-light">You have an account? <a  class="text-decoration-none text-light"  href="./index.html"> Signin</a></p>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script>
+      let inputName = document.querySelector("#inputName");
+      let inputEmail = document.querySelector("#inputEmail");
+      let inputPassword = document.querySelector("#inputPassword");
+      let errorSignup = document.querySelector(".errorSignup ");
+      let pSuccess= document.querySelector(".success");
+      let btnsignUp= document.querySelector(".signUp");
+      let errorInput = document.querySelector(".errorInput");
+  
+     
+
+btnsignUp.addEventListener("click", function () {
+ let  name= inputName.value;
+ let  email = inputEmail.value;
+ let  password =inputPassword.value;
+
+if(name ==="" ||password === "" ||email === ""){
+    errorSignup .classList.remove("d-none");
+} else {
+  let userData= {
+    userName: name,
+    userEmail : email,
+    userPassword : password,
+  };
+
+  localStorage.setItem("userData",JSON.stringify( userData) );
+
+
+    errorSignup .classList.add("d-none");
+    pSuccess.classList.remove("d-none") ; 
+    window.location.href = "./index.html";
+}
+clearForm();
+});
+
+function clearForm(){
+    inputName.value= "";    
+    inputEmail.value= "";
+    inputPassword.value= "";
+}
+    </script>
+  </body>
+</html>
